@@ -1,0 +1,10 @@
+I the max Integer calue (2^31 - 1) and it's negative counterpart (-(2^31 - 1)) in order to fail midpoint_A test. When converting the subtraction to addition for this specific situation, you get in binary 
+
+  1111111111111111111111111111111 
++ 0000000000000000000000000000000
+                                1 ----> carry in one
+----------------------------------
+  0000000000000000000000000000000      
+1 ----> carry out one
+
+Initially this seems correct as when you subtract a number by itself you get 0. However once you do that logical right shift by one, that carry out one moves into the 31st or leftmost slot, returning the minimum integer value (-2^31 or -2147483648).
